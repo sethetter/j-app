@@ -2,9 +2,7 @@
 
 ### API
 
-- Create login process
-    - Session storage
-    - Authenticated API requests
+- Authenticated API requests
 
 - Email and password validations on User
 
