@@ -18,15 +18,11 @@ module.exports = {
   beforeCreate: function (attrs, next) {
     var bcrypt = require('bcrypt');
 
-    bcrypt.genSalt(10, function(err, salt) {
+    bcrypt.hash(attrs.password, 10, function(err, hash) {
       if (err) return next(err);
 
-      bcrypt.hash(attrs.password, salt, function(err, hash) {
-        if (err) return next(err);
-
-        attrs.password = hash;
-        next();
-      });
+      attrs.password = hash;
+      next();
     });
   }
 
