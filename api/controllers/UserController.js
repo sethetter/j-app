@@ -12,8 +12,7 @@ module.exports = {
     var bcrypt = require('bcrypt');
 
     User.findOneByEmail(req.body.email).done(function (err, user) {
-      //if (err) res.json({ error: 'DB error' }, 500);
-      if (err) res.json(err, 500);
+      if (err) res.json({ error: 'DB error' }, 500);
 
       if (user) {
         bcrypt.compare(req.body.password, user.password, function (err, match) {
