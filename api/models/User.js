@@ -9,7 +9,7 @@
 module.exports = {
 
   attributes: {
-  	
+
     email: {
       type: 'string',
       unique: true,
@@ -28,7 +28,7 @@ module.exports = {
 
   },
 
-  beforeCreate: function (attrs, next) {
+  beforeCreate: function(attrs, next) {
     var bcrypt = require('bcrypt');
 
     bcrypt.hash(attrs.password, 10, function(err, hash) {
